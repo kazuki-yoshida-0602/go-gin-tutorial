@@ -79,7 +79,7 @@ func getLoginPOSTPayload() string {
 
 func getRegistrationPOSTPayload() string {
   params := url.Values{}
-  params.Add("username", "user1")
-  params.Add("password", "pass1")
+  params.Add("username", "u1")
+  params.Add("password", "p1")
   return params.Encode()
 }
