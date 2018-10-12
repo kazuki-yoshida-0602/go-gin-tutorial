@@ -1,7 +1,7 @@
 package main
 
 import (
-  "os"
+//  "os"
   "net/http"
   "net/http/httptest"
   "testing"
@@ -10,12 +10,13 @@ import (
 )
 
 var tmpArticleList []article
+var tmpUserList []user
 
-func Testmain(m *testing.M) {
-  gin.SetMode(gin.TestMode)
-
-  os.Exit(m.Run())
-}
+//func Testmain(m *testing.M) {
+//  gin.SetMode(gin.TestMode)
+//
+//  os.Exit(m.Run())
+//}
 
 func getRouter(withTemplates bool) *gin.Engine {
   r := gin.Default()
@@ -35,9 +36,12 @@ func testHTTPResponse(t *testing.T, r *gin.Engine, req *http.Request, f func(w *
 }
 
 func saveLists() {
+  tmpUserList = userList
   tmpArticleList = articleList
 }
 
 func restoreLists() {
+  userList = tmpUserList
   articleList = tmpArticleList
 }
+
